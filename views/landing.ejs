@@ -2,12 +2,12 @@
 
 <div class="container">
   <h1 class="display-4 text-center mb-2">
-    BaseballAPI Usage
+    API Usage
   </h1>
   <p class="text-center mb-1">All information is in JSON format.</p>
   <p class="text-center mb-3">
     The Github link for this project is
-    <a href="https://github.com/darlose04/Baseball-API">here</a>.
+    <a href="https://github.com/darlose04/Fangraphs">here</a>.
   </p>
   <div class="mb-3 p-3 border rounded-lg border-danger">
     <h4>Notes</h4>
@@ -18,37 +18,13 @@
         tables.
       </li>
       <li class="list-group-item">
-        If a player has '- - -' in place of a team name, it means that player
-        was traded at some point during the season. As of now, I don't have a
-        way to clarify which teams the player was on and how the player did with
-        said teams. It only accounts for season long stats.
+        Stats encompass 2002-2019.
       </li>
       <li class="list-group-item">
-        Currently, I am only using stats from 5 seasons, 2014 through 2018. I
-        plan on including more seasons as well as more comprehensive statistics.
-        I also plan on including team stats as a whole, as well as divisional
-        standings.
-      </li>
-      <li class="list-group-item">
-        These stats are also based on several qualifying factors:
-        <ul>
-          <li>For hitters, a minimum of 100 at bats</li>
-          <li>For starters, a minimum of 50 innings pitched</li>
-          <li>For relievers, a minimum of 20 innings pitched</li>
-          <li>
-            For the pitcher routes that include both starters and relievers, a
-            minimum of 30 innings pitched
-          </li>
-        </ul>
-        These qualifications were made in an attempt to also capture the
-        statistics of players who may have had less playing time as a result of
-        moving between AAA and MLB.
-      </li>
-      <li class="list-group-item">
-        When retrieving information such as starters by year by team, it may
-        appear that a team has fewer starters than one would think. This is most
-        likely due to players being traded and therefore not showing up when
-        searching by team.
+        Players that played for multiple teams within one season will have
+        entries that detail stats for each team that player played for. So if a
+        player played for two different teams, there will be two entries for
+        that player, one for each team.
       </li>
     </ul>
   </div>
