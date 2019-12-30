@@ -101,7 +101,7 @@ const PlayerBatting = db.define(
       allowNull: false
     },
     gb_per_fb: {
-      type: Sequelize.DECIMAL(4, 3),
+      type: Sequelize.DECIMAL(4, 2),
       allowNull: false
     },
     ld_perc: {
@@ -149,11 +149,11 @@ const PlayerBatting = db.define(
       allowNull: false
     },
     wrc_plus: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL(4, 3),
       allowNull: false
     },
     bsr: {
-      type: Sequelize.DECIMAL(4, 1),
+      type: Sequelize.DECIMAL(3, 1),
       allowNull: false
     },
     off: {
@@ -165,7 +165,7 @@ const PlayerBatting = db.define(
       allowNull: false
     },
     war: {
-      type: Sequelize.DECIMAL(4, 1),
+      type: Sequelize.DECIMAL(3, 1),
       allowNull: false
     },
     playerid: {
