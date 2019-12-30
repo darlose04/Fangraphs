@@ -16,4 +16,7 @@ app.get("/", (req, res) => {
   res.render("landing");
 });
 
+// Routes for player batting statistics
+app.use("/api/playerbatting", require("./routes/player_batting"));
+
 module.exports = app;
