@@ -12,7 +12,7 @@ app.use(cors());
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.render("landing");
 });
 
 module.exports = app;
