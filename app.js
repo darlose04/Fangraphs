@@ -8,6 +8,7 @@ db.authenticate()
   .catch(err => console.log(err));
 
 const app = express();
+// initialize cors to allow for cross origin reference sharing
 app.use(cors());
 app.set("view engine", "ejs");
 
