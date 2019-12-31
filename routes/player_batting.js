@@ -13,4 +13,14 @@ router.get("/", (req, res) => {
   }).then(player_batting => res.json(player_batting));
 });
 
+// get player batting stats by season
+router.get("/:season", (req, res) => {
+  PlayerBatting.findAll({
+    where: {
+      season: req.params.season
+    },
+    order: [["war", "DESC"]]
+  }).then(player_batting => res.json(player_batting));
+});
+
 module.exports = router;
