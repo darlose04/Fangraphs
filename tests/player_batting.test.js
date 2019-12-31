@@ -16,6 +16,13 @@ describe("test routes for player batting statistics", () => {
     const response = await api.get("/api/playerbatting");
     expect(response.body.length).toBe(25427);
   });
+
+  test("the first returned item is Barry Bonds and the 2002 season", async () => {
+    const response = await api.get("/api/playerbatting");
+    let firstItem = response.body[0];
+    expect(firstItem.name).toBe("Barry Bonds");
+    expect(firstItem.season).toBe(2002);
+  });
 });
 
 afterAll(() => {
