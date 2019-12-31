@@ -7,7 +7,7 @@ const Sequelize = require("sequelize");
 router.get("/", (req, res) => {
   PlayerBatting.findAll({
     order: [["season", "ASC"]]
-  }).then(batters => res.json(batters));
+  }).then(player_batting => res.json(player_batting));
 });
 
 module.exports = router;
