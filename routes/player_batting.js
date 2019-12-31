@@ -6,7 +6,10 @@ const Sequelize = require("sequelize");
 // get all player batting statistics
 router.get("/", (req, res) => {
   PlayerBatting.findAll({
-    order: [["season", "ASC"]]
+    order: [
+      ["season", "ASC"],
+      ["war", "DESC"]
+    ]
   }).then(player_batting => res.json(player_batting));
 });
 
