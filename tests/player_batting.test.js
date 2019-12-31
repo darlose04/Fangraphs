@@ -3,7 +3,7 @@ const supertest = require("supertest");
 const app = require("../app");
 const api = supertest(app);
 
-describe("test routes for player batting statistics", () => {
+describe("test routes for all player batting statistics", () => {
   test("all player hitting stats are returned as json", async () => {
     console.log("Entered test...");
     await api
@@ -22,6 +22,13 @@ describe("test routes for player batting statistics", () => {
     let firstItem = response.body[0];
     expect(firstItem.name).toBe("Barry Bonds");
     expect(firstItem.season).toBe(2002);
+  });
+
+  test("the second returned item has a lower war than the first returned item", async () => {
+    const response = await api.get("/api/playerbatting");
+    let firstItem = response.body[0];
+    let secondItem = response.body[1];
+    expect(secondItem.war).toBeLessThan(firstItem.war);
   });
 });
 
