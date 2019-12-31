@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
       ["season", "ASC"],
       ["war", "DESC"]
     ]
-  }).then(player_batting => res.json(player_batting));
+  }).then(batters => res.json(batters));
 });
 
 // get player batting stats by season
@@ -20,7 +20,7 @@ router.get("/:season", (req, res) => {
       season: req.params.season
     },
     order: [["war", "DESC"]]
-  }).then(player_batting => res.json(player_batting));
+  }).then(batters => res.json(batters));
 });
 
 module.exports = router;
