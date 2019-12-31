@@ -3,7 +3,7 @@ const supertest = require("supertest");
 const app = require("../app");
 const api = supertest(app);
 
-describe("test routes for all player batting statistics", () => {
+describe("test route for all player batting statistics", () => {
   test("all player hitting stats are returned as json", async () => {
     console.log("Entered test...");
     await api
@@ -29,6 +29,20 @@ describe("test routes for all player batting statistics", () => {
     let firstItem = response.body[0];
     let secondItem = response.body[1];
     expect(secondItem.war).toBeLessThan(firstItem.war);
+  });
+});
+
+describe("test route for returning player stats according to the season", () => {
+  test("make sure each season is returned as json", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      await api
+        .get(`/api/playerbatting/${year}`)
+        .expect(200)
+        .expect("Content-Type", /application\/json/);
+
+      year++;
+    }
   });
 });
 
