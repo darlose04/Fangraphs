@@ -28,7 +28,9 @@ describe("test route for all player batting statistics", () => {
     const response = await api.get("/api/playerbatting");
     let firstItem = response.body[0];
     let secondItem = response.body[1];
-    expect(secondItem.war).toBeLessThan(firstItem.war);
+    let lastItem = response.body[response.body.length - 1];
+    expect(lastItem.war).toBeLessThanOrEqual(secondItem.war);
+    expect(secondItem.war).toBeLessThanOrEqual(firstItem.war);
   });
 });
 
