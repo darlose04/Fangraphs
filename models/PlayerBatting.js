@@ -5,7 +5,7 @@ const PlayerBatting = db.define(
   "player_batting",
   {
     season: {
-      type: Sequelize.DATEONLY,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     name: {
