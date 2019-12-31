@@ -11,6 +11,11 @@ describe("test routes for player batting statistics", () => {
       .expect(200)
       .expect("Content-Type", /application\/json/);
   });
+
+  test("there are 25,427 entries returned", async () => {
+    const response = await api.get("/api/playerbatting");
+    expect(response.body.length).toBe(25427);
+  });
 });
 
 afterAll(() => {
