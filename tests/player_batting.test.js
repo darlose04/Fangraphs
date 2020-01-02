@@ -83,6 +83,16 @@ describe("test route for returning individual player statistics", () => {
       .expect(200)
       .expect("Content-Type", /application\/json/);
   });
+
+  test("returned items are ordered by ascending season", async () => {
+    let response = await api.get("/api/playerbatting/players/Albert Pujols");
+    let firstSeason = response.body[0].season;
+    let secondSeason = response.body[1].season;
+    let lastSeason = response.body[response.body.length - 1].season;
+
+    expect(firstSeason).toBeLessThan(secondSeason);
+    expect(secondSeason).toBeLessThan(lastSeason);
+  });
 });
 
 afterAll(() => {
