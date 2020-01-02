@@ -76,6 +76,15 @@ describe("test route for returning player stats according to the season", () => 
   });
 });
 
+describe("test route for returning individual player statistics", () => {
+  test("returned items are json", async () => {
+    await api
+      .get("/api/playerbatting/players/Albert Pujols")
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
