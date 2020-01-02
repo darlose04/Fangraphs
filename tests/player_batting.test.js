@@ -61,6 +61,19 @@ describe("test route for returning player stats according to the season", () => 
       year++;
     }
   });
+
+  test("returned items have the correct season", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/playerbatting/${year}`);
+      let firstItemSeason = response.body[0].season;
+      let lastItemSeason = response.body[response.body.length - 1].season;
+      expect(firstItemSeason).toEqual(year);
+      expect(lastItemSeason).toEqual(year);
+
+      year++;
+    }
+  });
 });
 
 afterAll(() => {
