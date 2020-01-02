@@ -114,7 +114,8 @@ describe("test route for returning player stats by team", () => {
   });
 
   test("players stats by team are returned in chronological order by season", async () => {
-    let response = await api.get("/api/playerbatting/teams/Angels");
+    let team = "Angels";
+    let response = await api.get(`/api/playerbatting/teams/${team}`);
 
     for (let i = 0; i < response.body.length; i += 25) {
       expect(response.body[i].season).toBeLessThanOrEqual(
