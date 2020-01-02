@@ -112,6 +112,16 @@ describe("test route for returning player stats by team", () => {
       .expect(200)
       .expect("Content-Type", /application\/json/);
   });
+
+  test("players stats by team are returned in chronological order by season", async () => {
+    let response = await api.get("/api/playerbatting/teams/Angels");
+
+    for (let i = 0; i < response.body.length; i += 25) {
+      expect(response.body[i].season).toBeLessThanOrEqual(
+        response.body[i + 1].season
+      );
+    }
+  });
 });
 
 afterAll(() => {
