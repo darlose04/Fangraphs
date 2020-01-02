@@ -104,6 +104,16 @@ describe("test route for returning individual player statistics", () => {
   });
 });
 
+describe("test route for returning player stats by team", () => {
+  test("stats are returned as json", async () => {
+    let team = "Cubs";
+    await api
+      .get(`/api/playerbatting/teams/${team}`)
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
