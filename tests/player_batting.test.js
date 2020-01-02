@@ -134,6 +134,17 @@ describe("test route for returning player stats by team", () => {
   });
 });
 
+describe("test route for returning player stats by team, by season", () => {
+  test("stats are returned as json", async () => {
+    let team = "Twins";
+    let season = 2008;
+    await api
+      .get(`/api/playerbatting/teams/${team}/${season}`)
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
