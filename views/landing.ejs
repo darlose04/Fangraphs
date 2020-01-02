@@ -36,42 +36,55 @@
     </p>
     <ul class="list-group list-group-flush mb-3">
       <li class="list-group-item">
-        Get all batters from years 2014-2018:
+        Get all batters stats (2002-2019):
         <code>
-          /api/batting
+          /api/playerbatting
         </code>
       </li>
       <li class="list-group-item">
-        Get individual batter stats from every year:
+        Get player batting stats by season:
         <code>
-          /api/batting/players/:name
+          /api/playerbatting/:season
         </code>
         <p>
-          <strong>Note: </strong>Be sure to put a space in between the first and
-          last name:
-          <code>/api/batting/players/Mike Trout</code>
+          <strong>Example:</strong>
+          <code>
+            /api/playerbatting/2010
+          </code>
         </p>
       </li>
       <li class="list-group-item">
-        Get batters by year:
+        Get individual batter statistics:
         <code>
-          /api/batting/:year
+          /api/playerbatting/players/:name
         </code>
+        <p>
+          <strong>Note: </strong>When searching for individual players, put a
+          space in between the first and last name.
+          <code>/api/playerbatting/players/Mike Trout</code>
+        </p>
       </li>
       <li class="list-group-item">
-        Get individual batter by year:
+        Get batters by team:
         <code>
-          /api/batting/:year/players/:name
+          /api/playerbatting/teams/:team
         </code>
+        <p>
+          <strong>Note: </strong>This is just the team name, no city/state
+          included. Same rule for spaces applies.
+          <code>/api/playerbatting/teams/Red Sox</code>
+        </p>
       </li>
       <li class="list-group-item">
         Get batters by team by year:
         <code>
-          /api/batting/:year/teams/:team
+          /api/playerbatting/teams/:team/:season
         </code>
         <p>
-          <strong>Note: </strong>This is just the team name, no city/state
-          included: <code>/api/batting/2014/teams/Cubs</code>
+          <strong>Example:</strong>
+          <code>
+            /api/playerbatting/teams/White Sox/2005
+          </code>
         </p>
       </li>
     </ul>
