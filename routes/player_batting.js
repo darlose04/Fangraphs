@@ -23,4 +23,13 @@ router.get("/:season", (req, res) => {
   }).then(batters => res.json(batters));
 });
 
+router.get("/players/:name", (req, res) => {
+  PlayerBatting.findAll({
+    where: {
+      name: req.params.name
+    },
+    order: [["season", "ASC"]]
+  }).then(batter => res.json(batter));
+});
+
 module.exports = router;
