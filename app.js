@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
   res.render("landing");
 });
 
+app.get("/glossary", (req, res) => {
+  res.render("glossary");
+});
+
 // Routes for player batting statistics
 app.use("/api/playerbatting", require("./routes/player_batting"));
 
