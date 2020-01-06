@@ -31,6 +31,20 @@ describe("test route for all team batting statistics", () => {
   });
 });
 
+describe("test route for returning stats by season", () => {
+  test("check that each season is returned as json", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      await api
+        .get(`/api/teambatting/${year}`)
+        .expect(200)
+        .expect("Content-Type", /application\/json/);
+
+      year++;
+    }
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
