@@ -44,6 +44,14 @@ describe("test route for returning stats by season", () => {
     }
   });
 
+  test("make sure that 30 teams are being returned", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/teambatting/${year}`);
+      expect(response.body.length).toBe(30);
+    }
+  });
+
   test("check that the teams are ordered by alphabetical order", async () => {
     let year = 2002;
     while (year < 2020) {
@@ -54,8 +62,6 @@ describe("test route for returning stats by season", () => {
       expect(lastItem.team).toBe("Yankees");
     }
   });
-
-  // check that 30 items always get returned
 });
 
 afterAll(() => {
