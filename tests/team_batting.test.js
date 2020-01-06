@@ -76,6 +76,23 @@ describe("test route for returning stats by season", () => {
   });
 });
 
+describe("test route that gets stats by team", async () => {
+  test("check that team stats are returned as json", async () => {
+    let teams = [];
+    let teamGET = await api.get("/api/teambatting/2002");
+    for (let i = 0; i < teamGET.body.length; i++) {
+      teams.push(teamGET.body[i].team);
+    }
+
+    for (let j = 0; j < teams.length; j++) {
+      await api
+        .get(`/api/teambatting/${teams[j]}`)
+        .expect(200)
+        .expect("Content-Type", /application\/json/);
+    }
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
