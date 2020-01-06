@@ -4,7 +4,12 @@ const TeamBatting = require("../models/TeamBatting");
 const Sequelize = require("sequelize");
 
 router.get("/", (req, res) => {
-  res.send("This is the initial team batting page");
+  TeamBatting.findAll({
+    order: [
+      ["season", "ASC"],
+      ["team", "ASC"]
+    ]
+  }).then(teams => res.json(teams));
 });
 
 module.exports = router;
