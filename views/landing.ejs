@@ -29,10 +29,10 @@
     </ul>
   </div>
   <div class="mb-3 p-3 border rounded-lg border-dark">
-    <h3>Hitting Routes</h3>
+    <h3>Player Hitting Routes</h3>
     <p>
       Using GET requests, you can access the information at these routes for
-      hitting:
+      player hitting statistics:
     </p>
     <ul class="list-group list-group-flush mb-3">
       <li class="list-group-item">
@@ -89,6 +89,43 @@
           <code>
             /api/playerbatting/teams/White Sox/2005
           </code>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div class="mb-3 p-3 border rounded-lg border-dark">
+    <h3>Team Hitting Routes</h3>
+    <p>
+      Using GET requests, you can access the information at these routes for
+      team hitting statistics:
+    </p>
+    <ul class="list-group list-group-flush mb-3">
+      <li class="list-group-item">
+        Get all team stats (2002-2019):
+        <code>
+          /api/teambatting
+        </code>
+      </li>
+      <li class="list-group-item">
+        Get team batting stats by season:
+        <code>
+          /api/teambatting/:season
+        </code>
+        <p>
+          <strong>Example:</strong>
+          <code>
+            /api/teambatting/2010
+          </code>
+        </p>
+      </li>
+      <li class="list-group-item">
+        Get statistics by team (returns stats for one team for every season):
+        <code>
+          /api/teambatting/teams/:team
+        </code>
+        <p>
+          <strong>Example: </strong>
+          <code>/api/teambatting/teams/White Sox</code>
         </p>
       </li>
     </ul>
