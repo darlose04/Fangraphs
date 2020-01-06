@@ -23,4 +23,7 @@ app.get("/glossary", (req, res) => {
 // Routes for player batting statistics
 app.use("/api/playerbatting", require("./routes/player_batting"));
 
+// Routes for team batting statistics
+app.use("/api/teambatting", require("./routes/team_batting"));
+
 module.exports = app;
