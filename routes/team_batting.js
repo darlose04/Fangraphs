@@ -12,4 +12,13 @@ router.get("/", (req, res) => {
   }).then(teams => res.json(teams));
 });
 
+router.get("/:season", (req, res) => {
+  TeamBatting.findAll({
+    where: {
+      season: req.params.season
+    },
+    order: [["team", "ASC"]]
+  }).then(teams => res.json(teams));
+});
+
 module.exports = router;
