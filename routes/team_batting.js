@@ -21,4 +21,13 @@ router.get("/:season", (req, res) => {
   }).then(teams => res.json(teams));
 });
 
+router.get("/teams/:team", (req, res) => {
+  TeamBatting.findAll({
+    where: {
+      team: req.params.team
+    },
+    order: [["season", "ASC"]]
+  }).then(teams => res.json(teams));
+});
+
 module.exports = router;
