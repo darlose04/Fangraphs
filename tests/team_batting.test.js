@@ -62,6 +62,17 @@ describe("test route for returning stats by season", () => {
       expect(lastItem.team).toBe("Yankees");
     }
   });
+
+  test("check that the season equals the year in the url", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/teambatting/${year}`);
+
+      for (let i = 0; i < response.body.length; i++) {
+        expect(response.body[i].season).toEqual(year);
+      }
+    }
+  });
 });
 
 afterAll(() => {
