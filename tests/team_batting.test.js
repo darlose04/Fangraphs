@@ -17,7 +17,7 @@ describe("test route for all team batting statistics", () => {
     expect(response.body.length).toBe(540);
   });
 
-  test("Returned statistics are ordered by season (ASC) and team (DESC)", async () => {
+  test("Returned statistics are ordered by season (ASC) and team (ASC)", async () => {
     const response = await api.get("/api/teambatting");
     let firstItem = response.body[0];
     expect(firstItem.team).toBe("Angels");
@@ -25,7 +25,7 @@ describe("test route for all team batting statistics", () => {
     let itemThirty = response.body[29];
     expect(itemThirty.team).toBe("Yankees");
     expect(itemThirty.season).toBe(2002);
-    let lastItem = reponse.body[reponse.body.length - 1];
+    let lastItem = response.body[response.body.length - 1];
     expect(lastItem.team).toBe("Yankees");
     expect(lastItem.season).toBe(2019);
   });
