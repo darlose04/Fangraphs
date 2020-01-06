@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const PlayerBatting = require("../models/PlayerBatting");
+const TeamBatting = require("../models/TeamBatting");
 const Sequelize = require("sequelize");
 
 router.get("/", (req, res) => {
