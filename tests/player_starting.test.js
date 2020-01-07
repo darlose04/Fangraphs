@@ -98,7 +98,7 @@ describe("test route for returning individual starting pitching stats", () => {
 
   test("check that the returned items are for the correct player", async () => {
     let name = "Clayton Kershaw";
-    let response = await api.get(`/api/playerbatting/players/${name}`);
+    let response = await api.get(`/api/playerstarting/players/${name}`);
 
     for (i = 0; i < response.body.length; i++) {
       expect(response.body[i].name).toBe(name);
@@ -113,6 +113,17 @@ describe("test route for returning player starting pitching stats by team", () =
       .get(`/api/playerstarting/teams/${team}`)
       .expect(200)
       .expect("Content-Type", /application\/json/);
+  });
+
+  test("players stats by team are returned in chronological order by season", async () => {
+    let team = "Angels";
+    let response = await api.get(`/api/playerstarting/teams/${team}`);
+
+    for (let i = 0; i < response.body.length; i += 25) {
+      expect(response.body[i].season).toBeLessThanOrEqual(
+        response.body[i + 1].season
+      );
+    }
   });
 });
 
