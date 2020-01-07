@@ -53,6 +53,19 @@ describe("test route for returning team starting pitching stats by season", () =
       year++;
     }
   });
+
+  test("check that the teams are ordered by alphabetical order", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/teamstarting/${year}`);
+      let firstItem = response.body[0];
+      let lastItem = response.body[response.body.length - 1];
+      expect(firstItem.team).toBe("Angels");
+      expect(lastItem.team).toBe("Yankees");
+
+      year++;
+    }
+  });
 });
 
 afterAll(() => {
