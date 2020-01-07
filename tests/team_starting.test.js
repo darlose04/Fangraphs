@@ -43,6 +43,16 @@ describe("test route for returning team starting pitching stats by season", () =
       year++;
     }
   });
+
+  test("make sure that 30 teams are being returned", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/teamstarting/${year}`);
+      expect(response.body.length).toBe(30);
+
+      year++;
+    }
+  });
 });
 
 afterAll(() => {
