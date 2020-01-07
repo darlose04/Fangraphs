@@ -11,6 +11,11 @@ describe("test route for returning all team starting pitching statistics", () =>
       .expect(200)
       .expect("Content-Type", /application\/json/);
   });
+
+  test("there are 540 entries returned", async () => {
+    const response = await api.get("/api/teampitching");
+    expect(response.body.length).toBe(540);
+  });
 });
 
 afterAll(() => {
