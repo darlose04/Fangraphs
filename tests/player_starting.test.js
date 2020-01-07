@@ -16,6 +16,13 @@ describe("test route for returning all player starting pitching statistics", () 
     const response = await api.get("/api/playerstarting");
     expect(response.body.length).toBe(5762);
   });
+
+  test("the first returned item is Curt Schilling and the 2002 season", async () => {
+    const response = await api.get("/api/playerstarting");
+    let firstItem = response.body[0];
+    expect(firstItem.name).toBe("Curt Schilling");
+    expect(firstItem.season).toBe(2002);
+  });
 });
 
 afterAll(() => {
