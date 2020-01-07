@@ -14,6 +14,14 @@ router.get("/", (req, res) => {
 });
 
 // find team pitching according to the season
+router.get("/:season", (req, res) => {
+  TeamPitching.findAll({
+    where: {
+      season: req.params.season
+    },
+    order: [["team", "ASC"]]
+  }).then(teams => res.json(teams));
+});
 
 // find team pitching according to the team (returns info for that team across all seasons)
 
