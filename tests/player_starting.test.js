@@ -46,6 +46,21 @@ describe("test route for returning player starting pitching stats according to t
       year++;
     }
   });
+
+  test("returned items are ordered by descending war", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/playerstarting/${year}`);
+      let firstItem = response.body[0];
+      let secondItem = response.body[1];
+      let length = response.body.length;
+      let lastItem = response.body[length - 1];
+      expect(lastItem.war).toBeLessThanOrEqual(secondItem.war);
+      expect(secondItem.war).toBeLessThanOrEqual(firstItem.war);
+
+      year++;
+    }
+  });
 });
 
 afterAll(() => {
