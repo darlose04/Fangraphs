@@ -34,6 +34,20 @@ describe("test route for returning all player starting pitching statistics", () 
   });
 });
 
+describe("test route for returning player starting pitching stats according to the season", () => {
+  test("make sure each season is returned as json", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      await api
+        .get(`/api/playerstarting/${year}`)
+        .expect(200)
+        .expect("Content-Type", /application\/json/);
+
+      year++;
+    }
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
