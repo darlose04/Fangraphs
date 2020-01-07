@@ -14,6 +14,14 @@ router.get("/", (req, res) => {
 });
 
 // get team starting pitching stats by season
+router.get("/:season", (req, res) => {
+  TeamStarting.findAll({
+    where: {
+      season: req.params.season
+    },
+    order: [["team", "ASC"]]
+  }).then(teams => res.json(teams));
+});
 
 // get team starting pitching stats by team (returns info for that team across all seasons)
 
