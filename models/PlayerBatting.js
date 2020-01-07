@@ -16,6 +16,10 @@ const PlayerBatting = db.define(
       type: Sequelize.STRING,
       allowNull: false
     },
+    age: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
     games: {
       type: Sequelize.INTEGER,
       allowNull: false
