@@ -85,9 +85,16 @@ describe("test route that gets pitching stats by team", () => {
   test("check that team stats are returned as json", async () => {
     let team = "Angels";
     await api
-      .get(`/api/teambatting/teams/${team}`)
+      .get(`/api/teampitching/teams/${team}`)
       .expect(200)
       .expect("Content-Type", /application\/json/);
+  });
+
+  test("check that team stats are ordered by season", async () => {
+    let team = "Red Sox";
+    let response = await api.get(`/api/teampitching/teams/${team}`);
+    expect(response.body[0].season).toBe(2002);
+    expect(response.body[response.body.length - 1].season).toBe(2019);
   });
 });
 
