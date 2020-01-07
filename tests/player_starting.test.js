@@ -95,6 +95,15 @@ describe("test route for returning individual starting pitching stats", () => {
     expect(firstSeason).toBeLessThan(secondSeason);
     expect(secondSeason).toBeLessThan(lastSeason);
   });
+
+  test("check that the returned items are for the correct player", async () => {
+    let name = "Clayton Kershaw";
+    let response = await api.get(`/api/playerbatting/players/${name}`);
+
+    for (i = 0; i < response.body.length; i++) {
+      expect(response.body[i].name).toBe(name);
+    }
+  });
 });
 
 afterAll(() => {
