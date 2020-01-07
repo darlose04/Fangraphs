@@ -29,4 +29,7 @@ app.use("/api/teambatting", require("./routes/team_batting"));
 // Routes for team pitching statistics
 app.use("/api/teampitching", require("./routes/team_pitching"));
 
+// Routes for team starting pitching statistics
+app.use("/api/teamstarting", require("./routes/team_starting"));
+
 module.exports = app;
