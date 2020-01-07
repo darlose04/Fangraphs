@@ -76,6 +76,16 @@ describe("test route for returning player starting pitching stats according to t
   });
 });
 
+describe("test route for returning individual starting pitching stats", () => {
+  test("returned items are json", async () => {
+    let name = "Randy Johnson";
+    await api
+      .get(`/api/playerstarting/players/${name}`)
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
