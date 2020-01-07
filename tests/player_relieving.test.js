@@ -107,7 +107,7 @@ describe("test route for returning individual relief pitching stats", () => {
 });
 
 describe("test route for returning player relief pitching stats by team", () => {
-  test("stats are returned as json", async () => {
+  test("relief stats are returned as json", async () => {
     let team = "Athletics";
     await api
       .get(`/api/playerrelieving/teams/${team}`)
