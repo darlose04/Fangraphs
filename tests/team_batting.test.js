@@ -45,34 +45,39 @@ describe("test route for returning batting stats by season", () => {
   });
 
   test("make sure that 30 teams are being returned", async () => {
-    // need to manually change the year. using a while loop causes the test to time out
-    let year = 2005;
-    let response = await api.get(`/api/teambatting/${year}`);
-    expect(response.body.length).toBe(30);
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/teambatting/${year}`);
+      expect(response.body.length).toBe(30);
+
+      year++;
+    }
   });
 
   test("check that the teams are ordered by alphabetical order", async () => {
-    // need to manually change the year. using a while loop causes the test to time out
     let year = 2002;
-    // while (year < 2020) {
-    let response = await api.get(`/api/teambatting/${year}`);
-    let firstItem = response.body[0];
-    let lastItem = response.body[response.body.length - 1];
-    expect(firstItem.team).toBe("Angels");
-    expect(lastItem.team).toBe("Yankees");
-    // }
+    while (year < 2020) {
+      let response = await api.get(`/api/teambatting/${year}`);
+      let firstItem = response.body[0];
+      let lastItem = response.body[response.body.length - 1];
+      expect(firstItem.team).toBe("Angels");
+      expect(lastItem.team).toBe("Yankees");
+
+      year++;
+    }
   });
 
   test("check that the season equals the year in the url", async () => {
-    // need to manually change the year. using a while loop causes the test to time out
     let year = 2002;
-    // while (year < 2020) {
-    let response = await api.get(`/api/teambatting/${year}`);
+    while (year < 2020) {
+      let response = await api.get(`/api/teambatting/${year}`);
 
-    for (let i = 0; i < response.body.length; i++) {
-      expect(response.body[i].season).toEqual(year);
+      for (let i = 0; i < response.body.length; i++) {
+        expect(response.body[i].season).toEqual(year);
+      }
+
+      year++;
     }
-    // }
   });
 });
 
