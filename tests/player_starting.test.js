@@ -61,6 +61,19 @@ describe("test route for returning player starting pitching stats according to t
       year++;
     }
   });
+
+  test("returned items have the correct season", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/playerstarting/${year}`);
+      let firstItemSeason = response.body[0].season;
+      let lastItemSeason = response.body[response.body.length - 1].season;
+      expect(firstItemSeason).toEqual(year);
+      expect(lastItemSeason).toEqual(year);
+
+      year++;
+    }
+  });
 });
 
 afterAll(() => {
