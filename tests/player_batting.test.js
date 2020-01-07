@@ -34,7 +34,7 @@ describe("test route for all player batting statistics", () => {
   });
 });
 
-describe("test route for returning player stats according to the season", () => {
+describe("test route for returning player batting stats according to the season", () => {
   test("make sure each season is returned as json", async () => {
     let year = 2002;
     while (year < 2020) {
@@ -76,7 +76,7 @@ describe("test route for returning player stats according to the season", () => 
   });
 });
 
-describe("test route for returning individual player statistics", () => {
+describe("test route for returning individual player batting statistics", () => {
   test("returned items are json", async () => {
     await api
       .get("/api/playerbatting/players/Albert Pujols")
@@ -104,7 +104,7 @@ describe("test route for returning individual player statistics", () => {
   });
 });
 
-describe("test route for returning player stats by team", () => {
+describe("test route for returning player batting stats by team", () => {
   test("stats are returned as json", async () => {
     let team = "Cubs";
     await api
@@ -134,7 +134,7 @@ describe("test route for returning player stats by team", () => {
   });
 });
 
-describe("test route for returning player stats by team, by season", () => {
+describe("test route for returning player batting stats by team, by season", () => {
   test("stats are returned as json", async () => {
     let team = "Twins";
     let season = 2008;
