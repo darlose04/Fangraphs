@@ -43,6 +43,17 @@ describe("test route for returning pitching stats by season", () => {
       year++;
     }
   });
+
+  test("make sure that 30 teams are being returned", async () => {
+    // need to manually change the year. using a while loop causes the test to time out
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/teambatting/${year}`);
+      expect(response.body.length).toBe(30);
+
+      year++;
+    }
+  });
 });
 
 afterAll(() => {
