@@ -33,4 +33,14 @@ router.get("/players/:name", (req, res) => {
   }).then(starter => res.json(starter));
 });
 
+// get starter stats by team
+router.get("/teams/:team", (req, res) => {
+  PlayerStarting.findAll({
+    where: {
+      team: req.params.team
+    },
+    order: [["season", "ASC"]]
+  }).then(teams => res.json(teams));
+});
+
 module.exports = router;
