@@ -66,6 +66,19 @@ describe("test route for returning pitching stats by season", () => {
       year++;
     }
   });
+
+  test("check that the season equals the year in the url", async () => {
+    let year = 2002;
+    while (year < 2020) {
+      let response = await api.get(`/api/teampitching/${year}`);
+
+      for (let i = 0; i < response.body.length; i++) {
+        expect(response.body[i].season).toEqual(year);
+      }
+
+      year++;
+    }
+  });
 });
 
 afterAll(() => {
