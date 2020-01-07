@@ -56,7 +56,7 @@ const TeamPitching = db.define(
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    home_runs: {
+    hr: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
