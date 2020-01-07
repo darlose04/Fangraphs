@@ -145,6 +145,17 @@ describe("test route for returning player starting pitching stats by team, by se
       .expect(200)
       .expect("Content-Type", /application\/json/);
   });
+
+  test("make sure correct team and season is returned", async () => {
+    let team = "Reds";
+    let season = 2005;
+    let response = await api.get(`/api/playerstarting/teams/${team}/${season}`);
+
+    for (i = 0; i < response.body.length; i++) {
+      expect(response.body[i].team).toBe(team);
+      expect(response.body[i].season).toBe(season);
+    }
+  });
 });
 
 afterAll(() => {
