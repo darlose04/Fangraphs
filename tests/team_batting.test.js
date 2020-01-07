@@ -31,7 +31,7 @@ describe("test route for all team batting statistics", () => {
   });
 });
 
-describe("test route for returning stats by season", () => {
+describe("test route for returning batting stats by season", () => {
   test("check that each season is returned as json", async () => {
     let year = 2002;
     while (year < 2020) {
