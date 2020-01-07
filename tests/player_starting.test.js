@@ -84,6 +84,17 @@ describe("test route for returning individual starting pitching stats", () => {
       .expect(200)
       .expect("Content-Type", /application\/json/);
   });
+
+  test("returned items are ordered by ascending season", async () => {
+    let name = "Jon Lester";
+    let response = await api.get(`/api/playerstarting/players/${name}`);
+    let firstSeason = response.body[0].season;
+    let secondSeason = response.body[1].season;
+    let lastSeason = response.body[response.body.length - 1].season;
+
+    expect(firstSeason).toBeLessThan(secondSeason);
+    expect(secondSeason).toBeLessThan(lastSeason);
+  });
 });
 
 afterAll(() => {
