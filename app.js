@@ -38,4 +38,7 @@ app.use("/api/teamrelieving", require("./routes/team_relieving"));
 // Routes for player starting pitching statistics
 app.use("/api/playerstarting", require("./routes/player_starting"));
 
+// Routes for player relief pitching statistics
+app.use("/api/playerrelieving", require("./routes/player_relieving"));
+
 module.exports = app;
