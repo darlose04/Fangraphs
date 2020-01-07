@@ -106,6 +106,16 @@ describe("test route for returning individual starting pitching stats", () => {
   });
 });
 
+describe("test route for returning player starting pitching stats by team", () => {
+  test("stats are returned as json", async () => {
+    let team = "Cubs";
+    await api
+      .get(`/api/playerstarting/teams/${team}`)
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
