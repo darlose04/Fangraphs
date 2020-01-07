@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize("baseballstats", "zach", process.env.PASSWORD, {
   host: "localhost",
-  dialect: "mariadb",
+  dialect: process.env.DIALECT,
   dialectOptions: {
     timezone: "Etc/GMT+6"
   },
