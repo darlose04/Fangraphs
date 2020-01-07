@@ -89,6 +89,13 @@ describe("test route that gets starting pitching stats by team", () => {
       .expect(200)
       .expect("Content-Type", /application\/json/);
   });
+
+  test("check that team stats are ordered by season", async () => {
+    let team = "Red Sox";
+    let response = await api.get(`/api/teamstarting/teams/${team}`);
+    expect(response.body[0].season).toBe(2002);
+    expect(response.body[response.body.length - 1].season).toBe(2019);
+  });
 });
 
 afterAll(() => {
