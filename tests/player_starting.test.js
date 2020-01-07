@@ -156,6 +156,18 @@ describe("test route for returning player starting pitching stats by team, by se
       expect(response.body[i].season).toBe(season);
     }
   });
+
+  test("make sure player stats are ordered by war", async () => {
+    let team = "Phillies";
+    let season = 2007;
+    let response = await api.get(`/api/playerstarting/teams/${team}/${season}`);
+
+    while (i < response.body.length - 1) {
+      expect(response.body[i].war).toBeGreaterThanOrEqual(
+        response.body[i + 1].war
+      );
+    }
+  });
 });
 
 afterAll(() => {
