@@ -23,6 +23,15 @@ describe("test route for returning all player starting pitching statistics", () 
     expect(firstItem.name).toBe("Curt Schilling");
     expect(firstItem.season).toBe(2002);
   });
+
+  test("the second returned item has a lower war than the first returned item", async () => {
+    const response = await api.get("/api/playerstarting");
+    let firstItem = response.body[0];
+    let secondItem = response.body[1];
+    let lastItem = response.body[response.body.length - 1];
+    expect(lastItem.war).toBeLessThanOrEqual(secondItem.war);
+    expect(secondItem.war).toBeLessThanOrEqual(firstItem.war);
+  });
 });
 
 afterAll(() => {
