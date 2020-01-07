@@ -81,6 +81,16 @@ describe("test route for returning pitching stats by season", () => {
   });
 });
 
+describe("test route that gets pitching stats by team", () => {
+  test("check that team stats are returned as json", async () => {
+    let team = "Angels";
+    await api
+      .get(`/api/teambatting/teams/${team}`)
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+});
+
 afterAll(() => {
   sequelize.close();
 });
