@@ -81,7 +81,7 @@ describe("test route for returning batting stats by season", () => {
   });
 });
 
-describe("test route that gets stats by team", () => {
+describe("test route that gets batting stats by team", () => {
   test("check that team stats are returned as json", async () => {
     let team = "Angels";
     await api
