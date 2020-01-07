@@ -94,6 +94,128 @@
     </ul>
   </div>
   <div class="mb-3 p-3 border rounded-lg border-dark">
+    <h3>Player Starting Pitching Routes</h3>
+    <p>
+      Using GET requests, you can access the information at these routes for
+      player starting pitching statistics:
+    </p>
+    <ul class="list-group list-group-flush mb-3">
+      <li class="list-group-item">
+        Get all starting stats (2002-2019):
+        <code>
+          /api/playerstarting
+        </code>
+      </li>
+      <li class="list-group-item">
+        Get starting stats by season:
+        <code>
+          /api/playerstarting/:season
+        </code>
+        <p>
+          <strong>Example:</strong>
+          <code>
+            /api/playerstarting/2010
+          </code>
+        </p>
+      </li>
+      <li class="list-group-item">
+        Get individual starter statistics:
+        <code>
+          /api/playerstarting/players/:name
+        </code>
+        <p>
+          <strong>Note: </strong>When searching for individual players, put a
+          space in between the first and last name.
+          <code>/api/playerstarting/players/Jon Lester</code>
+        </p>
+      </li>
+      <li class="list-group-item">
+        Get starters by team:
+        <code>
+          /api/playerstarting/teams/:team
+        </code>
+        <p>
+          <strong>Note: </strong>This is just the team name, no city/state
+          included. Same rule for spaces applies.
+          <code>/api/playerstarting/teams/Red Sox</code>
+        </p>
+      </li>
+      <li class="list-group-item">
+        Get starters by team by year:
+        <code>
+          /api/playerstarting/teams/:team/:season
+        </code>
+        <p>
+          <strong>Example:</strong>
+          <code>
+            /api/playerstarting/teams/White Sox/2005
+          </code>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div class="mb-3 p-3 border rounded-lg border-dark">
+    <h3>Player Relief Pitching Routes</h3>
+    <p>
+      Using GET requests, you can access the information at these routes for
+      player starting pitching statistics:
+    </p>
+    <ul class="list-group list-group-flush mb-3">
+      <li class="list-group-item">
+        Get all relief stats (2002-2019):
+        <code>
+          /api/playerrelieving
+        </code>
+      </li>
+      <li class="list-group-item">
+        Get relief stats by season:
+        <code>
+          /api/playerrelieving/:season
+        </code>
+        <p>
+          <strong>Example:</strong>
+          <code>
+            /api/playerrelieving/2010
+          </code>
+        </p>
+      </li>
+      <li class="list-group-item">
+        Get individual reliever statistics:
+        <code>
+          /api/playerrelieving/players/:name
+        </code>
+        <p>
+          <strong>Note: </strong>When searching for individual players, put a
+          space in between the first and last name.
+          <code>/api/playerrelieving/players/Aroldis Chapman</code>
+        </p>
+      </li>
+      <li class="list-group-item">
+        Get relievers by team:
+        <code>
+          /api/playerrelieving/teams/:team
+        </code>
+        <p>
+          <strong>Note: </strong>This is just the team name, no city/state
+          included. Same rule for spaces applies.
+          <code>/api/playerrelieving/teams/Red Sox</code>
+        </p>
+      </li>
+      <li class="list-group-item">
+        Get relievers by team by year:
+        <code>
+          /api/playerrelieving/teams/:team/:season
+        </code>
+        <p>
+          <strong>Example:</strong>
+          <code>
+            /api/playerrelieving/teams/White Sox/2005
+          </code>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div class="mb-3 p-3 border rounded-lg border-dark">
     <h3>Team Hitting Routes</h3>
     <p>
       Using GET requests, you can access the information at these routes for
@@ -237,150 +359,6 @@
         <p>
           <strong>Example: </strong>
           <code>/api/teamrelieving/teams/White Sox</code>
-        </p>
-      </li>
-    </ul>
-  </div>
-  <div class="mb-3 p-3 border rounded-lg border-dark">
-    <h3>All Pitching Routes</h3>
-    <p>
-      Using GET requests, you can access the information at these routes for
-      pitchers:
-    </p>
-    <ul class="list-group list-group-flush mb-3">
-      <li class="list-group-item">
-        Get all pitchers from years 2014-2018:
-        <code>
-          /api/pitching/pitchers
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get individual pitcher stats from every year:
-        <code>
-          /api/pitching/pitchers/players/:name
-        </code>
-        <p>
-          <strong>Note: </strong>Be sure to put a space in between the first and
-          last name:
-          <code>/api/pitching/pitchers/players/Jon Lester</code>
-        </p>
-      </li>
-      <li class="list-group-item">
-        Get pitchers by year:
-        <code>
-          /api/pitching/pitchers/:year
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get individual pitcher by year:
-        <code>
-          /api/pitching/pitchers/:year/players/:name
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get pitchers by team by year:
-        <code>
-          /api/pitching/pitchers/:year/teams/:team
-        </code>
-        <p>
-          <strong>Note: </strong>This is just the team name, no city/state
-          included: <code>/api/pitching/pitchers/2014/teams/Cubs</code>
-        </p>
-      </li>
-    </ul>
-  </div>
-  <div class="mb-3 p-3 border rounded-lg border-dark">
-    <h3>Starting Pitching Routes</h3>
-    <p>
-      Using GET requests, you can access the information at these routes for
-      starters:
-    </p>
-    <ul class="list-group list-group-flush mb-3">
-      <li class="list-group-item">
-        Get all starters from years 2014-2018:
-        <code>
-          /api/pitching/starters
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get individual starter stats from every year:
-        <code>
-          /api/pitching/starters/players/:name
-        </code>
-        <p>
-          <strong>Note: </strong>Be sure to put a space in between the first and
-          last name:
-          <code>/api/pitching/starters/players/Jon Lester</code>
-        </p>
-      </li>
-      <li class="list-group-item">
-        Get starters by year:
-        <code>
-          /api/pitching/starters/:year
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get individual starter by year:
-        <code>
-          /api/pitching/starters/:year/players/:name
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get starters by team by year:
-        <code>
-          /api/pitching/starters/:year/teams/:team
-        </code>
-        <p>
-          <strong>Note: </strong>This is just the team name, no city/state
-          included: <code>/api/pitching/starters/2014/teams/Cubs</code>
-        </p>
-      </li>
-    </ul>
-  </div>
-  <div class="mb-3 p-3 border rounded-lg border-dark">
-    <h3>Relief Pitching Routes</h3>
-    <p>
-      Using GET requests, you can access the information at these routes for
-      relievers:
-    </p>
-    <ul class="list-group list-group-flush mb-3">
-      <li class="list-group-item">
-        Get all relievers from years 2014-2018:
-        <code>
-          /api/pitching/relievers
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get individual reliever stats from every year:
-        <code>
-          /api/pitching/relievers/players/:name
-        </code>
-        <p>
-          <strong>Note: </strong>Be sure to put a space in between the first and
-          last name:
-          <code>/api/pitching/relievers/players/Pedro Strop</code>
-        </p>
-      </li>
-      <li class="list-group-item">
-        Get relievers by year:
-        <code>
-          /api/pitching/relievers/:year
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get individual reliever by year:
-        <code>
-          /api/pitching/relievers/:year/players/:name
-        </code>
-      </li>
-      <li class="list-group-item">
-        Get relievers by team by year:
-        <code>
-          /api/pitching/relievers/:year/teams/:team
-        </code>
-        <p>
-          <strong>Note: </strong>This is just the team name, no city/state
-          included: <code>/api/pitching/relievers/2014/teams/Cubs</code>
         </p>
       </li>
     </ul>
