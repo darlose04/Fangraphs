@@ -125,6 +125,15 @@ describe("test route for returning player starting pitching stats by team", () =
       );
     }
   });
+
+  test("team name is the same for all returned items", async () => {
+    let team = "Red Sox";
+    let response = await api.get(`/api/playerstarting/teams/${team}`);
+
+    for (let i = 0; i < response.body.length; i++) {
+      expect(response.body[i].team).toBe(team);
+    }
+  });
 });
 
 afterAll(() => {
