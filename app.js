@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const compression = require("compression");
 
 const db = require("./config/database");
 
@@ -10,6 +11,7 @@ db.authenticate()
 const app = express();
 // initialize cors to allow for cross origin resource sharing
 app.use(cors());
+app.use(compression());
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
